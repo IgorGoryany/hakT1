@@ -1,9 +1,13 @@
-import { TextEditorPage } from '@/components/TextEditorPage';
+import { MainContainer } from '@/components/MainContainer';
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-background pt-20 text-4">
-      <TextEditorPage />
+    <div className="flex justify-center flex-1 h-full">
+      <MainContainer className="pt-20">
+        <h1 className="text-6xl text-center text-foreground">
+          Инструмент для построения и интеграции базы знаний с ИИ помощником
+        </h1>
+      </MainContainer>
     </div>
   );
 };

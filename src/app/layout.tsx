@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import './globals.css';
+import Link from 'next/link';
+import { MainContainer } from '@/components/MainContainer';
+import { GradientLayout } from '@/components/GradientLayout';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -26,10 +29,26 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen dark`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen dark`}>
+        <GradientLayout className="min-h-screen">
+          <header className="sticky top-0 z-50 flex justify-center items-center border-b border-border bg-transparent px-4 py-2 backdrop-blur">
+            <MainContainer className="flex justify-center gap-7 flex-1">
+              <Link className="text-2xl font-bold tracking-tight" href="/">
+                Home
+              </Link>
+              <Link className="text-2xl font-bold tracking-tight" href="/">
+                Chat
+              </Link>
+              <Link className="text-2xl font-bold tracking-tight" href="/">
+                Get started
+              </Link>
+              <Link className="text-2xl font-bold tracking-tight" href="/">
+                About
+              </Link>
+            </MainContainer>
+          </header>
+          {children}
+        </GradientLayout>
       </body>
     </html>
   );
